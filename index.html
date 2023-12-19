@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Assests/style.css">
+    <title>Form For Service</title>
+</head>
+<body>
+    <h1>If any Names that need filled are blank i will assume it will be Pastor Ed </h1>
+    <form action="https://formsubmit.co/p_gresham@outlook.com" method="POST">
+        <input type="hidden" name="_cc" value="eur.kau@gmail.com">
+       
+
+        <div class="container">
+            <h2>Choose Date</h2>
+            <input type="date" id="moveDate" name="Date">
+            <h1>Order Of Service</h1>
+            <div class="input-container">
+                <h3>Song Of Prayer</h3>
+                <input type="text" id="FullName" name="Song Of Prayer" placeholder="Full Name">
+            </div>
+        
+            <div class="input-container">
+                <p>How many people are praying?</p>
+                <select id="peopleSelect" name="Number Of Prayers" onchange="showPrayerFields(this.value)">
+                    <!-- Options here -->
+                    <option value="">Select number</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <div id="prayerFields"></div>
+            </div>
+
+            <div class="input-container">
+                <h3>Open Song</h3>
+                <p>Song Names</p>
+                <select id="songSelect" name="songs" onchange="showSongFields(this.value)">
+                    <option value="">Select number</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <div id="songFields"></div>
+            </div>
+
+        <div class="input-container">
+            <h3>Scripture Reading</h3>
+            <input type="text" id="FullName" name="Scripture Reading" placeholder="Full Name">
+        </div>
+
+        <div class="input-container">
+            <h3>Prayer & Worship</h3>
+            <input type="text" id="FullName" name="Person singing Worship" placeholder="Full Name">
+        </div>
+        
+        <div class="input-container">
+            <h3>Offering</h3>
+        </div>
+
+        <fieldset>
+            <legend>Announcements</legend>
+            <input type="text" id="FullName" name="Person Announcements" placeholder="Person Giving Announcements">
+
+            <p>Monday Night Prayer 6pm to 7pm them time with Pastor From 7pm to 8pm</p>
+            <p>Tuesday Open bible Study 7:30pm</p>
+            <p>Wednesday Topic Bible Study 7:30pm</p>
+            <input type="text" id="WedTopic" name="WedTopic" placeholder="Topic">
+            <p>Thursday Rehearsal 7:30pm</p>
+            <p>Friday Night Youth 7:00pm</p>
+            <p>Saturday FellowShip</p>
+            <input type="text" id="Fellow" name="Place of FellowShip" placeholder="Place Of FellowShip and person">
+            <p>Sunday school 9am to 10am</p>
+            <p>Sunday Morning Service 11am</p>
+            <p>Sunday Night Service 7:30pm</p>
+            <p>New Announcements</p>
+            <textarea name="Message" placeholder="New Announcements" required></textarea>
+
+        </fieldset>
+
+        <!-- Speaker, Topic, and Sub-Topic Section -->
+        <fieldset>
+            <legend>Speaker Details</legend>
+            <input type="text" id="speakerName" name="speakerName" placeholder="Speaker Name">
+            <input type="text" id="topic" name="topic" placeholder="Topic">
+            <input type="text" id="subTopic" name="subTopic" placeholder="Sub-Topic">
+        </fieldset>
+
+        <button type="submit">Submit</button>
+    </div>
+    </form>
+    <script>
+        function showPrayerFields(number) {
+            var container = document.getElementById("prayerFields");
+            container.innerHTML = "";
+            for (var i = 1; i <= number; i++) {
+                container.innerHTML += "Person " + i + " Name: <input type='text' name='prayerPerson_" + i + "'><br>";
+            }
+        }
+
+        function showSongFields(number) {
+            var container = document.getElementById("songFields");
+            container.innerHTML = "";
+            for (var i = 1; i <= number; i++) {
+                container.innerHTML += "<div class='song-item'>" +
+                                        "Lead for Song " + i + ": <input type='text' name='song_" + i + "_lead'><br>" +
+                                        "Song " + i + " Title: <input type='text' name='song_" + i + "_title'><br>" +
+                                        "</div>";
+            }
+        }
+    </script>
+</body>
+</html>
